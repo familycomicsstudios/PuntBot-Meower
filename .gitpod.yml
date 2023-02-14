@@ -6,5 +6,6 @@
 
 tasks:
   - init: npm install
+  - before: npm run start
 
 
