@@ -19,7 +19,7 @@ bot.onMessage((data) => { // Runs when the server sends a new message
     } else {
     var split = data["val"]["p"].split(" ");
     if (split[0] === "!help") {
-        bot.post("My commands include:\n!help\n!ping\n!roast\n!upvote", data["val"]["post_origin"], data["val"]["post_origin"])
+        bot.post("My commands include:\n!help\n!ping\n!roast\n!upvote", data["val"]["post_origin"])
     }
     if (split[0] === "!ping") {
         bot.post("Pong", data["val"]["post_origin"])
