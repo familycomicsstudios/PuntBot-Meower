@@ -7,7 +7,7 @@ const bot = new Bot("PuntBot", process.env.PASSWORD); // Init, then login to Meo
 console.log(process.env.PASSWORD)
 
 bot.onLogin(() => { // Runs when logged in
-    bot.post("PuntBot joined the party! Try using !help.");
+    //bot.post("PuntBot joined the party! Try using !help.");
 });
 
 bot.onMessage((data) => { // Runs when the server sends a new message
@@ -15,19 +15,23 @@ bot.onMessage((data) => { // Runs when the server sends a new message
     data = JSON.parse(data)
     console.log(`New message: ${datas}`);
     console.log(`New message: ${data["val"]["p"]}`);
-    if (data["val"]["p"] === "!help") {
+    if (data["val"]["p"] === undefined) {
+    } else {
+    var split = data["val"]["p"].split(" ");
+    if (split[0] === "!help") {
         bot.post("My commands include:\n!help\n!ping\n!roast\n!upvote")
     }
-    if (data["val"]["p"] === "!ping") {
+    if (split[0] === "!ping") {
         bot.post("Pong")
     }
     var items = ["You're sus", "bro why u use roast", "you are about as funny as among us"];
-    if (data["val"]["p"] === "!roast") {
+    if (split[0] === "!roast") {
         bot.post(items[Math.floor(Math.random()*items.length)])
     }
-    if (data["val"]["p"] === "!upvote") {
-        bot.post("~karma upvote "+data["val"]["u"], "livechat")
+    if (split[0] === "!upvote") {
+        bot.post("~karma upvote "+split[1], "livechat")
         bot.post("Successfully added Karma!")
+    }
     }
 });
 
