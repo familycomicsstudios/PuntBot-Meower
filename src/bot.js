@@ -19,18 +19,18 @@ bot.onMessage((data) => { // Runs when the server sends a new message
     } else {
     var split = data["val"]["p"].split(" ");
     if (split[0] === "!help") {
-        bot.post("My commands include:\n!help\n!ping\n!roast\n!upvote")
+        bot.post("My commands include:\n!help\n!ping\n!roast\n!upvote", data["val"]["post_origin"], data["val"]["post_origin"])
     }
     if (split[0] === "!ping") {
-        bot.post("Pong")
+        bot.post("Pong", data["val"]["post_origin"])
     }
     var items = ["You're sus", "bro why u use roast", "you are about as funny as among us"];
     if (split[0] === "!roast") {
-        bot.post(items[Math.floor(Math.random()*items.length)])
+        bot.post(items[Math.floor(Math.random()*items.length)], data["val"]["post_origin"])
     }
     if (split[0] === "!upvote") {
         bot.post("~karma upvote "+split[1], "livechat")
-        bot.post("Successfully added Karma!")
+        bot.post("Successfully added Karma!", data["val"]["post_origin"])
     }
     }
 });
