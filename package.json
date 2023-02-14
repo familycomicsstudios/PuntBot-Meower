@@ -5,7 +5,9 @@
   "main": "src/MeowerBot.js",
   "types": "src/MeowerBot.d.ts",
   "type": "module",
-  "scripts": {},
+  "scripts": {
+    "start": "node src/bot.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MeowerBots/MeowerBot.js.git"
@@ -17,6 +19,8 @@
   },
   "homepage": "https://github.com/MeowerBots/MeowerBot.js#readme",
   "dependencies": {
+    "dotenv": "^16.0.3",
+    "meowerbot": "^1.4.3",
     "node-fetch": "^3.3.0",
     "ws": "^8.11.0"
   }
